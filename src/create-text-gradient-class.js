@@ -235,21 +235,7 @@ const createTextGradientClass = (
     () => viewConfig,
   );
 
-  const RNVirtualTextGradient =
-    UIManager.getViewManagerConfig(uiVirtualViewClassName) == null
-      ? RNTextGradient
-      : createReactNativeComponentClass(uiVirtualViewClassName, () => ({
-          validAttributes: {
-            ...ReactNativeViewAttributes.UIView,
-            isHighlighted: true,
-            maxFontSizeMultiplier: true,
-            colors: true,
-            locations: true,
-            useGlobalCache: true,
-            ...defaultPropAttributes
-          },
-          uiViewClassName: uiVirtualViewClassName,
-        }));
+  const RNVirtualTextGradient = RNTextGradient
 
   // $FlowFixMe - TODO T29156721 `React.forwardRef` is not defined in Flow, yet.
   const TextGradient = React.forwardRef((props, ref) => (
